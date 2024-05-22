@@ -1,0 +1,6 @@
+ul.sommaire {
+    margin: 0;
+    padding: calc(var(--20px) - 10px);
+    border-radius: 50px;
+  }
+
