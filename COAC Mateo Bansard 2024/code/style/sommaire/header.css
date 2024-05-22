@@ -1,9 +1,0 @@
-header.sommaire {
-    position: fixed;
-    z-index: var(--zindex-nav);
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    padding: 1 var(--16px);
-    }
