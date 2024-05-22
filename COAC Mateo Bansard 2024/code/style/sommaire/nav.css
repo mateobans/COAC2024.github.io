@@ -1,0 +1,9 @@
+nav.sommaire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: var(--20px) auto 0;
+    position: relative;
+    z-index: var(--zindex-nav);
+    }

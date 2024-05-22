@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Projet COAC 2024</title>
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="style/index.css" rel="stylesheet" />
+    <link href="style/projet1.css" rel="stylesheet" />
+    <link href="style/Experiences.css" rel="stylesheet" />
+    <link href="style/body.css" rel="stylesheet" />
+    <link href="style/Etudes.css" rel="stylesheet" />
+    <link href="style/info_perso.css" rel="stylesheet" />
+    <link href="style/projets.css" rel="stylesheet" />
+    <link href="style/sommaire.css" rel="stylesheet" />
+    <link href="style/sommaire/ul.css" rel="stylesheet" />
+    <link href="style/sommaire/header.css" rel="stylesheet" />
+    <link href="style/sommaire/nav.css" rel="stylesheet" />
+    <link href="style/sommaire/li.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const threshold = maxScroll / 10; 
+            const blurValue = scrollTop > threshold ? 0 : 20;
+
+            document.querySelector('.square').style.filter = `blur(${blurValue}px) saturate(2)`;
+        });
+    </script>
+    <div class="square"></div>
+    </div>
+    <header class="sommaire">
+        <nav class="sommaire">
+            <ul class="sommaire">
+                <li class="sommaire">
+                    <a href="index.html">
+                        Accueil
+                    </a>
+                </li>
+                <li class="sommaire">
+                    <a href="a-propos.html">
+                        Projets
+                    </a>
+                </li>
+                <li class="sommaire">
+                    <a href="note.html">
+                        Note
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div id="question" class="question">3 + 4</div>
+            <div class="flashcards">
+                <div class="flashcard" data-answer="6">
+                    <div class="front" style="background-color: #ff6f61;">6</div>
+                    <div class="back">6</div>
+                </div>
+                <div class="flashcard" data-answer="7">
+                    <div class="front" style="background-color: #ffcc5c;">7</div>
+                    <div class="back">7</div>
+                </div>
+                <div class="flashcard" data-answer="8">
+                    <div class="front" style="background-color: #88d8b0;">8</div>
+                    <div class="back">8</div>
+                </div>
+                <div class="flashcard" data-answer="9">
+                    <div class="front" style="background-color: #6a9bca;">9</div>
+                    <div class="back">9</div>
+                </div>
+            </div>
+            <button id="next" style="display:none;">Suivant</button>
+        </div>
+        <div id="finalScore" class="final-score" style="display:none;"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const questions = [
+                    { question: '3 + 4', answers: [6, 9, 8, 7], correct: 7 },
+                    { question: '5 x 6', answers: [31, 28, 30, 34], correct: 30 },
+                    { question: '12 / 4', answers: [2, 3, 4, 5], correct: 3 },
+                    { question: '15 - 9', answers: [6, 5, 10, 9], correct: 6 },
+                    { question: '7 + 8', answers: [14, 15, 16, 17], correct: 15 },
+                    { question: '9 x 3', answers: [28, 29, 30, 27], correct: 27 },
+                    { question: '20 / 5', answers: [6, 5, 4, 3], correct: 4 },
+                    { question: '11 - 3', answers: [3, 8, 10, 111], correct: 8 },
+                    { question: '6 x 2', answers: [1, 2, 12, 3], correct: 12 },
+                    { question: '8 + 5 x 4 / 1737 x 12 - 38', answers: [-29.84430, -29.8618307, -29.8630, -13.6528], correct: -29.861830 },
+                ];
+
+                let currentQuestionIndex = 0;
+                let score = 0;
+
+                const questionElement = document.getElementById('question');
+                const flashcardsContainer = document.querySelector('.flashcards');
+                const nextButton = document.getElementById('next');
+                const finalScoreElement = document.getElementById('finalScore');
+
+                function loadQuestion() {
+                    const currentQuestion = questions[currentQuestionIndex];
+                    questionElement.textContent = currentQuestion.question;
+                    flashcardsContainer.innerHTML = '';
+                    currentQuestion.answers.forEach((answer, index) => {
+                        const flashcard = document.createElement('div');
+                        flashcard.classList.add('flashcard');
+                        flashcard.setAttribute('data-answer', answer);
+
+                        const front = document.createElement('div');
+                        front.classList.add('front');
+                        front.style.backgroundColor = getColor(index);
+                        front.textContent = answer;
+
+                        const back = document.createElement('div');
+                        back.classList.add('back');
+                        back.textContent = answer;
+
+                        flashcard.appendChild(front);
+                        flashcard.appendChild(back);
+                        flashcard.addEventListener('click', checkAnswer);
+                        flashcardsContainer.appendChild(flashcard);
+                    });
+                }
+
+                function getColor(index) {
+                    const colors = ['#ff6f61', '#ffcc5c', '#88d8b0', '#6a9bca'];
+                    return colors[index % colors.length];
+                }
+
+                function checkAnswer(event) {
+                    const selectedAnswer = parseInt(event.currentTarget.getAttribute('data-answer'));
+                    const correctAnswer = questions[currentQuestionIndex].correct;
+                    if (selectedAnswer === correctAnswer) {
+                        score++;
+                    }
+                    event.currentTarget.classList.add('flip');
+                    setTimeout(nextQuestion, 1000);
+                }
+
+                function nextQuestion() {
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        loadQuestion();
+                    } else {
+                        displayFinalScore();
+                    }
+                }
+
+                function displayFinalScore() {
+                    questionElement.style.display = 'none';
+                    flashcardsContainer.style.display = 'none';
+                    nextButton.style.display = 'none';
+                    finalScoreElement.textContent = `Votre score final est ${score} sur ${questions.length}`;
+                    finalScoreElement.style.display = 'block';
+                }
+
+                loadQuestion();
+            });
+        </script>
+    <footer>
+        <a href="https://www.ens-rennes.fr" class="lien-icone">
+            <img src="images/logo.png" alt="Logo ens" />
+        </a>
+        <div>
+            <a target="_blank" href="https://www.linkedin.com/in/mateo-bansard-84ba7b247/" class="lien-icone">
+                <img src="images/linkedin.png" alt="Logo Linkedin" />
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

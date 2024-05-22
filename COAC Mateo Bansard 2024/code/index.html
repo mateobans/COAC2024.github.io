@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Projet COAC 2024</title>
+    <link href="style/style.css" rel="stylesheet" />
+    <link href="style/index.css" rel="stylesheet" />
+    <link href="style/Experiences.css" rel="stylesheet" />
+    <link href="style/body.css" rel="stylesheet" />
+    <link href="style/Etudes.css" rel="stylesheet" />
+    <link href="style/info_perso.css" rel="stylesheet" />
+    <link href="style/sommaire.css" rel="stylesheet" />
+    <link href="style/sommaire/ul.css" rel="stylesheet" />
+    <link href="style/sommaire/header.css" rel="stylesheet" />
+    <link href="style/sommaire/nav.css" rel="stylesheet" />
+    <link href="style/sommaire/li.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const threshold = maxScroll / 10; 
+            const blurValue = scrollTop > threshold ? 0 : 20;
+
+            document.querySelector('.square').style.filter = `blur(${blurValue}px) saturate(2)`;
+        });
+    </script>
+    <div class="square"></div>
+    </div>
+    <header class="sommaire">
+        <nav class="sommaire">
+            <ul class="sommaire">
+                <li class="sommaire">
+                    <a href="index.html">
+                        Accueil
+                    </a>
+                </li>
+                <li class="sommaire">
+                    <a href="a-propos.html">
+                        Projets
+                    </a>
+                </li>
+                <li class="sommaire">
+                    <a href="note.html">
+                        Note
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="accueil-introduction">
+            <div>
+                <h1>Projet COAC 2024</h1>
+                <p>
+                    Ce projet "COAC" à pour objectif de développer notre curiosité extra-disciplinaire, de nous insiter à travailler en autonomie et de développer une spécialisation scientifique.<br> 
+                    Désireux d'en apprendre plus sur le monde du développement web qui m'était jusque la inconnu, j'ai étudier un ensemble de 5 Mooc sur ce sujet. Ce site web (un peu méta) réuni l'ensemble de mon apprentissage.
+                    PS : Je pense qu'utiliser une page web pour réaliser un CV peut être quelque chose d'interessant et original, dans ce cas ce petit paragraphe pourait servir d'introduction sur moi.  
+                </p>
+                <a href="#contact" class="cta">CONTACTEZ-MOI</a>
+            </div>
+            <img src="images/profile.png" alt="Photo CV" />
+        </section>
+        <section class="accueil-photos">
+            <h2>Mon CV</h2>
+            <h3>Mes Informations personelles</h3>
+            <div class="grid-container">
+                <div class="grid-item">Telephone : 06 22 40 00 41</div>
+                <div class="grid-item">Mail : bansard.mateo@gmail.com</div>
+                <div class="grid-item">Adresse : 4 rue de Roumanie, 35200 Rennes </div>
+                <div class="grid-item">Github : mateobans</div>
+            </div>
+            <h3>Etudes</h3>
+            <div class="container_etude">
+                <div class="frise1" id="frise1">
+                    <h4>2023-2025 : ENS Rennes Département mécatronique</h4>
+                </div>
+                <script>
+                    window.addEventListener('scroll', () => {
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                        const threshold = maxScroll / 7;
+                        const newSize = scrollTop > threshold ? 300 : 0;
+                        document.getElementById('frise1').style.width = `${newSize}px`;            
+                    });
+                </script>
+            </div>
+            <div>
+                <div class="frise2" id="frise2">
+                    <h4>2020-2023 : Classe Préparatoire PT (Physique et Technologie) 
+                        Lycée La Croix Rouge, Brest</h4>
+                </div>
+                <script>
+                    window.addEventListener('scroll', () => {
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                        const threshold = maxScroll / 6.5;
+                        const newSize2 = scrollTop > threshold ? 400 : 0;
+                        document.getElementById('frise2').style.width = `${newSize2}px`;            
+                    });
+                </script>
+            </div>
+            <div>
+                <div class="frise3" id="frise3">
+                    <h4>2017-2020 : Lycée Descartes Tours</h4>
+                </div>
+                <script>
+                    window.addEventListener('scroll', () => {
+                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                        const threshold = maxScroll / 6;
+                        const newSize3 = scrollTop > threshold ? 400 : 0;
+                        document.getElementById('frise3').style.width = `${newSize3}px`;            
+                    });
+                </script>
+            </div>
+        </section>
+        <section>
+            <h3>Experiences</h3>
+            <div class="flashcards-container">
+                <div class="flashcard-container">
+                    <div class="flashcard">
+                        <div class="front">
+                            <img src="images/La_blanche_hermine.jpg" alt="Blanche Hermine"> </div>
+                        <div class="back">
+                            <h5>Ma première expérience professionnelle m'a offert la possibilité
+                                de développer mes compétences et d'acquérir une compréhension pratique du monde du travail 
+                            </h5>
+                        </div>
+                    </div>
+                    <p>Juillet 2020 - aout 2020</p>
+                </div>
+                
+                <div class="flashcard-container">
+                    <div class="flashcard">
+                        <div class="front">
+                            <img src="images/Les_farmes.jpg" alt="Farmers"></div>
+                        <div class="back">
+                            <h5>Cette seconde experience professionnel m'a permis de renforcer mes conaissances du monde du travail.
+                                Mon role de manager m'a également fait prendre conscience de l'importance de la culture de collaboration au sein d'une équipe.
+                                J'ai également pu, à la suite de cet emploi, aller travailler sur les 24h du Mans (Super cool)
+                            </h5>
+                        </div>
+                    </div>
+                    <p>Juillet 2022 - aout 2022 <br> Juillet 2023 - aout 2023</p>
+                </div>
+        
+                <div class="flashcard-container">
+                    <div class="flashcard">
+                        <div class="front">
+                            <img src="images/mini_proj.png" alt="Mini Proj"></div>
+                        <div class="back">
+                            <h5>Mini Projet de recherche à l'aide d'outils numériques encadré par Sara Bretin, Chercheuse à l'IETR.
+                                <br>Récupération d’énergie par l’utilisation d’un piézoélectrique
+                            </h5>
+                        </div>
+                    </div>
+                    <p>Mars 2024</p>
+                </div>
+                
+                <div class="flashcard-container">
+                    <div class="flashcard">
+                        <div class="front">
+                            <img src="images/stage1A.png" alt="Stage1A"></div>
+                        <div class="back">
+                            <h5>Stage de L3 au sein de l'équipe de recherche "Mucines, cancer et résistance aux drogues". <br>
+                                Participation au développement d'un modèle dynamique de tumeur du pancréas: simulation numérique de l'environnement mécanique de la tumeur.
+                            </h5>
+                        </div>
+                    </div>
+                    <p>Mai 2024 - Juin 2024</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>Compétences</h3>
+            <div class="grid-container">
+                <div class="grid-item">Python / SQL</div>
+                <div class="grid-item">HTML5 / CSS3 / JavaScript / C  (base)</div>
+                <div class="grid-item">Matlab / Simulink </div>
+                <div class="grid-item">SolidWorks / Comsol</div>
+            </div>
+        </section>
+        <section id="contact" class="section-contact">
+            <h2>Besoin de me contacter</h2>
+            <form method="get" action="">
+                <div class="form-nom-email">
+                    <div class="form-column">
+                        <label for="nom">nom</label>
+                        <input type="text" name="nom" id="nom" />
+                    </div>
+                    <div class="form-column">
+                        <label for="email">email</label>
+                        <input type="e-mail" name="email" id="email" />
+                    </div>
+                </div>
+                <label for="message">message</label>
+                <textarea name="message" id="message" rows="10"></textarea>
+                <input type="submit" value="ENVOYER" class="cta" />
+            </form>
+        </section>
+    </main>
+    <footer>
+        <a href="https://www.ens-rennes.fr" class="lien-icone">
+            <img src="images/logo.png" alt="Logo ens" />
+        </a>
+        <div>
+            <a target="_blank" href="https://www.linkedin.com/in/mateo-bansard-84ba7b247/" class="lien-icone">
+                <img src="images/linkedin.png" alt="Logo Linkedin" />
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
